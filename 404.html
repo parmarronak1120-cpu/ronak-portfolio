@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - System Crash | Ronak</title>
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B0F19'/%3E%3Ccircle cx='50' cy='50' r='35' stroke='%238B5CF6' stroke-width='8' fill='none'/%3E%3Cpath d='M40 35 L60 50 L40 65' fill='none' stroke='%2306B6D4' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Syne:wght@800&family=Fira+Code:wght@500&display=swap');
+
+    :root {
+      --primary: #8B5CF6;
+      --primary-glow: rgba(139, 92, 246, 0.4);
+      --bg-base: #0B0F19;
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Interactive Background Grid Canvas */
+    canvas {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .error-container {
+      width: 90%;
+      max-width: 580px;
+      padding: 3rem;
+      background: rgba(20, 26, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      text-align: center;
+      position: relative;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .error-code {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(5rem, 15vw, 8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, #06B6D4, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      position: relative;
+      animation: glitch 1.5s infinite linear alternate-reverse;
+    }
+
+    .error-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .error-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .console-command {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #06B6D4;
+      margin-bottom: 3rem;
+    }
+
+    .console-cursor {
+      width: 8px;
+      height: 15px;
+      background-color: #06B6D4;
+      animation: blink 0.8s infinite;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      background: var(--primary);
+      color: #0B0F19;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn:hover {
+      background: #7C3AED;
+      box-shadow: 0 6px 25px var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    /* Core keyframe Animations */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 0 red, -2px 0 0 blue;
+      }
+
+      25% {
+        text-shadow: -2px 0 0 red, 2px 0 0 blue;
+      }
+
+      50% {
+        text-shadow: 1px 2px 0 blue, -1px -2px 0 red;
+      }
+
+      75% {
+        text-shadow: 2px -1px 0 red, -2px 1px 0 blue;
+      }
+
+      100% {
+        text-shadow: -2px 0 0 blue, 2px 0 0 red;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Dynamic Starfield CRT Canvas Grid -->
+  <canvas id="glitch-bg-canvas"></canvas>
+
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-title">SYSTEM_CRASH_DETECTED</h1>
+
+    <p class="error-desc">The database coordinate you entered does not exist or has been shifted in another timeline
+      directory. Return home safely.</p>
+
+    <div class="console-command">
+      <span>$ ronak --reboot-system</span>
+      <div class="console-cursor"></div>
+    </div>
+
+    <div>
+      <a href="index.html" class="btn">
+        <span>Return to Safe Orbit</span>
+        <i class="fa-solid fa-house-signal"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("glitch-bg-canvas");
+    const ctx = canvas.getContext("2d");
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener("resize", () => {
+      width = (canvas.width = window.innerWidth);
+      height = (canvas.height = window.innerHeight);
+    });
+
+    // Particle nodes for sci-fi starfields
+    const particles = [];
+    const maxParticles = 65;
+
+    for (let i = 0; i < maxParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2 + 0.5,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4
+      });
+    }
+
+    // Track cursor grid alignment shifts
+    let mouse = { x: null, y: null };
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function draw() {
+      ctx.fillStyle = "#0B0F19";
+      ctx.fillRect(0, 0, width, height);
+
+      // Render grid pattern lines
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
+      ctx.lineWidth = 1;
+      const gridSize = 40;
+      for (let x = 0; x < width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Draw and join nodes
+      particles.forEach((p, idx) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Border loop
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        ctx.fillStyle = "rgba(139, 92, 246, 0.25)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Connect node logic
+        for (let j = idx + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 110) {
+            ctx.strokeStyle = `rgba(6, 182, 212, ${0.12 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+
+</html>

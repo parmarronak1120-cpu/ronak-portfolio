@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Glowing grids gradient -->
+    <linearGradient id="grid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="100%" stop-color="#141A2A"/>
+    </linearGradient>
+    
+    <!-- Neon Purple gradient -->
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    
+    <!-- Cyber Cyan gradient -->
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+
+    <!-- Glowing filter shadows -->
+    <filter id="neon-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="800" height="500" fill="url(#grid-grad)"/>
+
+  <!-- Tech Blueprint grid lining -->
+  <g stroke="rgba(255, 255, 255, 0.03)" stroke-width="1">
+    <!-- Verticals -->
+    <line x1="100" y1="0" x2="100" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="500" />
+    <line x1="300" y1="0" x2="300" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="500" y1="0" x2="500" y2="500" />
+    <line x1="600" y1="0" x2="600" y2="500" />
+    <line x1="700" y1="0" x2="700" y2="500" />
+    
+    <!-- Horizontals -->
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+  </g>
+
+  <!-- Concentric abstract circles -->
+  <circle cx="400" cy="250" r="180" fill="none" stroke="rgba(139, 92, 246, 0.05)" stroke-width="1.5"/>
+  <circle cx="400" cy="250" r="140" fill="none" stroke="rgba(6, 182, 212, 0.05)" stroke-width="2" stroke-dasharray="10 15"/>
+  <circle cx="400" cy="250" r="80" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
+
+  <!-- Core Neon Vector Arts -->
+  <!-- Neon Purple Polygon -->
+  <polygon points="400,130 520,200 520,300 400,370 280,300 280,200" 
+           fill="none" stroke="url(#purple-glow)" stroke-width="3" filter="url(#neon-shadow)"/>
+
+  <!-- Cyan Inner Nodes -->
+  <g filter="url(#neon-shadow)">
+    <circle cx="400" cy="130" r="6" fill="#06B6D4"/>
+    <circle cx="520" cy="200" r="6" fill="#06B6D4"/>
+    <circle cx="520" cy="300" r="6" fill="#06B6D4"/>
+    <circle cx="400" cy="370" r="6" fill="#06B6D4"/>
+    <circle cx="280" cy="300" r="6" fill="#06B6D4"/>
+    <circle cx="280" cy="200" r="6" fill="#06B6D4"/>
+  </g>
+
+  <!-- Connecting internal data lines -->
+  <line x1="400" y1="130" x2="400" y2="370" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="280" y1="200" x2="520" y2="300" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="280" y1="300" x2="520" y2="200" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <!-- Glowing core code icon block -->
+  <g transform="translate(370, 220)" filter="url(#neon-shadow)">
+    <rect width="60" height="60" rx="16" fill="#141A2A" stroke="url(#cyan-glow)" stroke-width="2"/>
+    <path d="M 18,22 L 8,30 L 18,38" fill="none" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 42,22 L 52,30 L 42,38" fill="none" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 33,18 L 27,42" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tech label tags -->
+  <text x="400" y="420" font-family="'Fira Code', monospace" font-size="12" fill="#9CA3AF" text-anchor="middle" letter-spacing="2">
+    CORE_SYSTEMS: ACTIVE
+  </text>
+  <text x="400" y="440" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16" fill="url(#purple-glow)" text-anchor="middle" letter-spacing="1">
+    PREMIUM FULL-STACK BLUEPRINT
+  </text>
+
+  <!-- Side coordinates styling -->
+  <text x="30" y="40" font-family="'Fira Code', monospace" font-size="10" fill="rgba(255,255,255,0.15)">
+    SYS_REF: 0x856E2818
+  </text>
+  <text x="30" y="60" font-family="'Fira Code', monospace" font-size="10" fill="rgba(255,255,255,0.15)">
+    GRID_LOC: 22.3094° N, 72.1362° E
+  </text>
+  <text x="770" y="40" font-family="'Fira Code', monospace" font-size="10" fill="rgba(255,255,255,0.15)" text-anchor="end">
+    VER: 2026.5.30
+  </text>
+</svg>
